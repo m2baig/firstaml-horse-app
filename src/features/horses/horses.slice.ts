@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { fetchHorse, fetchHorseById } from '../../app/services/horse';
+import { fetchHorse, fetchHorseById, updateHorseById } from '../../app/services/horse';
 import { Status } from '../../interfaces/status.enum';
 
 import IHorseDto from '../../interfaces/horse.interface';
@@ -36,6 +36,13 @@ const horseSlice = createSlice({
       })
       .addCase(fetchHorseById.fulfilled, (state, action) => {
         state.horse = action.payload;
+      })
+      .addCase(updateHorseById.fulfilled, (state, action) => {
+        if (state.horses) {
+          const horseId = action.payload.id;
+          const horseIndex = state.horses.findIndex((horse) => horse.id === horseId);
+          state.horses[horseIndex] = action.payload;
+        }
       });
   },
 });

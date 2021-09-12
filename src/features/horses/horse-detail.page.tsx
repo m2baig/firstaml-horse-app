@@ -1,5 +1,5 @@
 import { useEffect, FC } from 'react';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 
 import { IPage } from '../../interfaces/page.interface';
 import IHorseDto from '../../interfaces/horse.interface';
@@ -39,6 +39,11 @@ const HorseDetailPage: FC<IPage> = () => {
             <div className="col-sm">Weight:</div>
             <div className="col-sm">{horse.profile?.physical?.weight}</div>
           </div>
+        </div>
+        <div className="mt-2">
+          <Link to={`/editHorse/${horse.id}`} className="btn btn-primary">
+            Edit Horse
+          </Link>
         </div>
       </>
     );
