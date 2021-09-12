@@ -11,7 +11,7 @@ function App() {
       <div className="App">
         <BrowserRouter>
           <Header />
-          <div className="content-wrapper content">
+          <div className="content-wrapper ">
             <div className=" content">
               <div className="row">
                 <div className="col-md-6 mt-5">

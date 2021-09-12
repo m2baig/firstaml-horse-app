@@ -6,7 +6,7 @@ const Loading: FC<IPage> = () => {
   return (
     <div className="text-center">
       <div className="spinner-border " role="status">
-        <span className="sr-only"></span>
+        <span className="sr-only"></span> Loading...
       </div>
     </div>
   );
