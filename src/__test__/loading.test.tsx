@@ -1,7 +1,7 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 
-import Loading from './loading';
+import Loading from '../components/common/loading';
 
 describe('Renders Loading Component', () => {
   test('renders loading component', () => {

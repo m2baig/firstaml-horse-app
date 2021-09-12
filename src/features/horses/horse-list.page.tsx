@@ -1,12 +1,11 @@
 import { useEffect, useState, FC } from 'react';
-
+import { Link } from 'react-router-dom';
 import ReactPaginate from 'react-paginate';
 
 import { IPage } from '../../interfaces/page.interface';
 import '../../styles/pagination.css';
 import Loading from '../../components/common/loading';
 import appConfig from '../../config/app-config';
-
 import { Status } from '../../interfaces/status.enum';
 import IHorseDto from '../../interfaces/horse.interface';
 import { useAppDispatch, useAppSelector } from '../../app/hooks';
@@ -27,7 +26,7 @@ const HorseListPage: FC<IPage> = () => {
   const displayRecords = (horses: IHorseDto[]) =>
     horses.slice(pagesVisited, pagesVisited + recordPerPage).map((horse: IHorseDto) => (
       <li className={'list-group-item '} key={horse.id}>
-        {horse.name}
+        <Link to={`horse/${horse.id}`}>{horse.name} </Link>
       </li>
     ));
 
@@ -59,7 +58,6 @@ const HorseListPage: FC<IPage> = () => {
     return <Loading />;
   }
 
-  console.debug(horses);
   return (
     <>
       <h2>Horse List </h2>

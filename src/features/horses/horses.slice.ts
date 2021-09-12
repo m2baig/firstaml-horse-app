@@ -1,12 +1,14 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { fetchHorse } from '../../app/services/horse';
+import { fetchHorse, fetchHorseById } from '../../app/services/horse';
 import { Status } from '../../interfaces/status.enum';
 
 import IHorseDto from '../../interfaces/horse.interface';
+import { RootState } from '../../app/store';
 
 interface IState {
   status: Status;
   horses?: IHorseDto[];
+  horse?: IHorseDto;
 }
 const initialState: IState = {
   status: Status.INIT,
@@ -28,8 +30,18 @@ const horseSlice = createSlice({
       })
       .addCase(fetchHorse.rejected, (state, action) => {
         state.status = Status.FAILED;
+      })
+      .addCase(fetchHorseById.pending, (state, action) => {
+        state = Object.assign(state, { horse: {} });
+      })
+      .addCase(fetchHorseById.fulfilled, (state, action) => {
+        state.horse = action.payload;
       });
   },
 });
 
 export default horseSlice.reducer;
+export const selectHorseById = (state: RootState, horseId: string) =>
+  state.horse.horses?.find((horse: IHorseDto) => horse.id === horseId);
+
+export const selectedHorseById = (state: RootState) => state.horse?.horse;

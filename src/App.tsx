@@ -14,7 +14,7 @@ function App() {
           <div className="content-wrapper ">
             <div className=" content">
               <div className="row">
-                <div className="col-md-6 mt-5">
+                <div className="col-md-10 mt-4">
                   <Switch>
                     {routes.map((route, index) => {
                       return (

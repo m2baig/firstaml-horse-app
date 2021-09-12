@@ -4,8 +4,13 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 export const fetchHorse = createAsyncThunk('horse/fetchHorse', async () => {
   try {
     const response = await http.get('/horse');
-    const horses = response.data;
+    return response.data;
+  } catch (e) {}
+});
 
-    return horses;
+export const fetchHorseById = createAsyncThunk('horse/fetchHorseById', async (horseId: string) => {
+  try {
+    const response = await http.get(`/horse/${horseId}`);
+    return response.data;
   } catch (e) {}
 });
