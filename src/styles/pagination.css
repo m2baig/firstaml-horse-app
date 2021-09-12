@@ -1,0 +1,33 @@
+.paginationBttns {
+  width: 80%;
+  height: 40px;
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+  color: var(--e-global-color-ead6bce);
+}
+
+.paginationBttns a {
+  padding: var(--space-s);
+  margin: var(--space-s);
+  border-radius: var(--space-xs);
+  border: 1px solid var(--e-global-color-primary);
+  background-color: var(--e-global-color-primary);
+  color: var(--e-global-color-ead6bce);
+  cursor: pointer;
+}
+
+.paginationBttns a:hover,
+.paginationActive a {
+  color: var(--e-global-color-ead6bce);
+  background-color: var(--e-global-color-accent);
+}
+
+.paginationDisabled a {
+  color: var(--e-global-color-ead6bce);
+  background-color: var(--e-global-color-primary);
+  opacity: 0.5;
+  cursor: initial;
+  text-decoration: none;
+}

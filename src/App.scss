@@ -1,0 +1,44 @@
+:root {
+  --e-global-color-primary: #4ab369;
+  --e-global-color-secondary: #1c3d54;
+  --e-global-color-text: #414b55;
+  --e-global-color-accent: #6ec287;
+  --e-global-color-77a4826: #fdf9f5;
+  --e-global-color-ead6bce: #ffffff;
+
+  --space-xs: 6px;
+  --space-s: 9px;
+  --space-m: 12px;
+  --space-l: 15px;
+}
+
+$theme-colors: (
+  'primary': #4ab369,
+  'secondary': #1c3d54,
+  'light': #fdf9f5,
+);
+
+@import '~bootstrap/scss/bootstrap';
+
+body {
+  font-family: 'Sailec', Sans-serif;
+  color: var(--e-global-color-text);
+}
+
+.text-center {
+  text-align: center;
+}
+
+.content-wrapper {
+  text-align: left;
+  max-width: 750px;
+  margin: auto;
+  .content {
+    padding: var(--space-l);
+    margin: auto;
+  }
+}
+
+ul {
+  list-style: none;
+}
